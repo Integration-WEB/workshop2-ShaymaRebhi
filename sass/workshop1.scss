@@ -1,0 +1,45 @@
+.text {
+  color:red;
+  font-size: 20px;
+}
+textarea{
+  @extend .text;
+}
+h1{
+  @extend .text;
+}
+@mixin inline-block($border) {
+  border : $border;
+}
+#box{
+@include inline-block(3px solid yellow);
+}
+.background{
+  color:white;
+}
+@function background($color){
+  @if ($color == white){
+    @return black;
+  }@else{
+    @return white;
+  }
+}
+.btn-default{
+  color:background(white);
+}
+$langage:"html","angular","spring","symfony";
+@function first($list){
+  @return nth($list, 1);
+}
+@function last($list){
+  @return nth($list, length($list));
+}
+.test1{
+  content: first($langage);
+}
+.test2{
+  content: last($langage);
+}
+
+
+
